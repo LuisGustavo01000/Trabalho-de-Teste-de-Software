@@ -16,7 +16,7 @@ Antes de começar, certifique-se de ter instalado em sua máquina:
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/<seu-usuario>/Trabalho-Teste-de-Software.git
+git clone https://github.com/MatheusCanuto07/GastroFlow.git
 cd Trabalho-Teste-de-Software
 ```
 
@@ -25,7 +25,7 @@ cd Trabalho-Teste-de-Software
 Na raiz do projeto, execute:
 
 ```bash
-pnpm install
+npm install
 ```
 
 > Caso prefira, também é possível usar `npm install`, mas o projeto utiliza `pnpm-lock.yaml` como referência de versões.
