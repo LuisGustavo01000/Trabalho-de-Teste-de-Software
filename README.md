@@ -25,7 +25,7 @@ cd Trabalho-Teste-de-Software
 Na raiz do projeto, execute:
 
 ```bash
-npm install
+pnpm install
 ```
 
 > Caso prefira, também é possível usar `npm install`, mas o projeto utiliza `pnpm-lock.yaml` como referência de versões.
