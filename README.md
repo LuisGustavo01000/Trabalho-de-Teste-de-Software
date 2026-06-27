@@ -1,51 +1,194 @@
-# Black Belt
+# 🥋 BlackBelt
 
-`CURSO: Sistemas de Informação`
+Sistema desenvolvido em **ASP.NET Core 8 MVC** para gerenciamento de usuários e instrutores, utilizando **Entity Framework Core** e **SQL Server**.
 
-`DISCIPLINA: Trabalho Interdisciplinar Aplicações para Sustentabilidade`
+Este repositório contém a aplicação, o banco de dados e os testes automatizados do projeto.
 
-`1º semestre/2025`
+---
 
-O projeto, desenvolvido pelo grupo Black Belt, tem como objetivo criar e implementar um sistema automatizado de gestão da frequência e do desempenho dos alunos da academia Sigma, especializada na prática de Jiu-jitsu. A solução visa oferecer maior precisão no controle das presenças, possibilitar o acompanhamento individualizado da evolução técnica de cada praticante e disponibilizar dados estratégicos para auxiliar professores e gestores no planejamento e na organização das turmas. Com isso, busca-se melhorar a experiência dos alunos, otimizar os processos administrativos da academia e contribuir para a retenção dos praticantes por meio de um acompanhamento mais eficaz e personalizado.
+# 📋 Pré-requisitos
 
-## Integrantes
+Antes de executar o projeto, instale os seguintes programas:
 
-Bruna Vitória de Oliveira Souza<br>
-Carolina Alves Baião Pessoa<br>
-Lucas Henrique da Silva Rabelo<br>
-Pedro Arley Paes Maia<br>
-Rafael Romagnoli Conforte Cesario<br>
-Sandy Costa Santos<br>
-Vinícius de Andrade Rodrigues
+- ✅ [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- ✅ SQL Server Express ou LocalDB
+- ✅ Visual Studio 2022 ou Visual Studio Code com extensão C#
+- ✅ Google Chrome (necessário para testes com Selenium)
 
-## Professor
+---
 
-Maria Inês Lage de Paula<br>
-Paulo Henrique Rodrigues
+# 📦 Clonando o Projeto
 
+Clone o repositório e entre na pasta do projeto:
 
-# Documentação
+```bash
+git clone (https://github.com/LuisGustavo01000/Trabalho-de-Teste-de-Software.git)
 
-<ol>
-<li><a href="docs/01-Contexto.md"> Documentação de contexto</a></li>
-<li><a href="docs/02-Especificacao.md"> Especificação do projeto</a></li>
-<li><a href="docs/03-Metodologia.md"> Metodologia</a></li>
-<li><a href="docs/04-Modelagem-processos-negocio.md"> Modelagem dos processos de negócios</a></li>
-<li><a href="docs/05-Projeto-interface.md"> Projeto de interface</a></li>
-<li><a href="docs/06-Template-padrao.md"> Template padrão da aplicação</a></li>
-<li><a href="docs/07-Arquitetura-solucao.md"> Arquitetura da solução</a></li>
-<li><a href="docs/08-Plano-testes-software.md"> Plano de testes de software</a></li>
-<li><a href="docs/09-Registro-testes-software.md"> Registro de testes de software</a></li>
-<li><a href="docs/10-Plano-testes-usabilidade.md"> Plano de testes de usabilidade</a></li>
-<li><a href="docs/11-Registro-testes-usabilidade.md"> Registro de testes de usabilidade</a></li>
-<li><a href="docs/12-Conclusao.md"> Conclusão</a></li>
-<li><a href="docs/13-Referencias.md"> Referências</a></li>
-</ol>
+cd Trabalho-de-Testes
+```
 
-# Código
+---
 
-* <a href="src/BlackBelt">Código</a>
+# 📥 Restaurando as Dependências
 
-# Apresentação
+Na raiz do projeto execute:
 
-* <a href="presentation/README.md">Apresentação do projeto</a>
+```bash
+dotnet restore
+```
+
+---
+
+# 🗄️ Configuração do Banco de Dados
+
+Verifique se o SQL Server LocalDB está em execução.
+
+Confira se o arquivo:
+
+```
+src/BlackBelt/appsettings.Development.json
+```
+
+possui a string de conexão correta:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=BlackBeltDB;Trusted_Connection=True;TrustServerCertificate=True"
+  }
+}
+```
+
+Depois, entre na pasta da aplicação:
+
+```bash
+cd src/BlackBelt
+```
+
+Crie o banco de dados executando:
+
+```bash
+dotnet ef database update
+```
+
+---
+
+# ▶️ Executando a Aplicação
+
+Ainda dentro da pasta **src/BlackBelt**, execute:
+
+```bash
+dotnet run
+```
+
+Caso tudo esteja correto, será exibida uma mensagem semelhante a:
+
+```text
+Now listening on:
+https://localhost:7XXX
+```
+
+A aplicação ficará disponível no navegador através do endereço informado.
+
+---
+
+# 👤 Usuário Administrador
+
+Na primeira execução é criado automaticamente um usuário administrador.
+
+| Campo | Valor |
+|--------|-------|
+| CPF | 12345678900 |
+| Senha | 123 |
+
+Também é aceito o atalho:
+
+| Usuário | Senha |
+|----------|--------|
+| admin | admin |
+
+---
+
+# 🧪 Executando os Testes
+
+O projeto utiliza **xUnit** juntamente com **Entity Framework Core InMemory**, portanto **não é necessário iniciar o banco de dados** para executar os testes.
+
+Entre na pasta:
+
+```bash
+cd src/BlackBelt.Tests
+```
+
+Execute:
+
+```bash
+dotnet test
+```
+
+---
+
+# ✅ Resultado Esperado
+
+Se todos os testes forem executados com sucesso, o terminal exibirá algo semelhante a:
+
+```text
+Passed! - Failed: 0
+Passed: 5
+Skipped: 0
+Total: 5
+
+✓ BuscarUsuario_IdExistente_RetornaUsuario
+✓ BuscarUsuario_IdInexistente_RetornaNull
+✓ CadastrarUsuario_CpfUnico_RetornaUsuario
+✓ CadastrarUsuario_CpfDuplicado_RetornaNull
+✓ BuscarInstrutores_RetornaApenasInstrutores
+```
+
+---
+
+# 🛠️ Tecnologias Utilizadas
+
+| Tecnologia | Descrição |
+|------------|-----------|
+| ASP.NET Core 8 MVC | Framework principal |
+| Entity Framework Core 9 | ORM |
+| SQL Server / LocalDB | Banco de dados |
+| xUnit | Testes unitários |
+| EF Core InMemory | Banco em memória para testes |
+| Razor Views | Interface da aplicação |
+| Bootstrap | Estilização |
+
+---
+
+# 📁 Estrutura do Projeto
+
+```text
+Trabalho-de-Testes
+│
+├── src
+│   ├── BlackBelt
+│   │   ├── Controllers
+│   │   ├── Models
+│   │   ├── Views
+│   │   ├── Data
+│   │   └── Program.cs
+│   │
+│   └── BlackBelt.Tests
+│       ├── RepositoryTests
+│       └── ...
+│
+└── README.md
+```
+
+---
+
+# 📌 Observações
+
+- Utilize o **.NET 8 SDK**.
+- O projeto foi desenvolvido utilizando **SQL Server LocalDB**.
+- Os testes unitários utilizam banco em memória (**EF Core InMemory**).
+- Caso haja alterações nas entidades, execute novamente:
+
+```bash
+dotnet ef database update
+```
