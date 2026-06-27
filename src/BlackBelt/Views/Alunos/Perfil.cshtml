@@ -1,0 +1,200 @@
+﻿@model BlackBelt.Models.Aluno
+@{
+    ViewData["Title"] = "Perfil do aluno";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/Alunos.css" />
+}
+
+<style>
+    .btn-cadastrar {
+        background-color: #C49A6C;
+        color: white;
+        border-radius: 20px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+</style>
+</br>
+
+<h3 class="text-center m-2">Perfil Aluno</h3>
+<br />
+<div class="container" style="width:500px;">
+
+    <form asp-action="CadastroHabilidade" asp-controller="Alunos" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Dt_Matricula" />
+        <div class="form-floating mb-3">
+            <input type="text" disabled="true" class="form-control" asp-for="Nome" value="@Model.Nome.ToString()">
+            <label for="Nome">Nome</label>
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" asp-for="Faixa" value="@Model.Faixa.ToString()">
+            <label for="Faixa">Faixa</label>
+            <span asp-validation-for="Faixa" class="text-danger"></span>
+        </div>
+        <div class="text-center mb-4 m-3">
+            <a class="btn btn-dark" style="border-radius: 20px;width:180px;" asp-area="" asp-controller="Alunos" asp-action="Index">Voltar</a>
+            <button class="btn btn-cadastrar" type="submit">Cadastrar Habilidade</button>
+        </div>
+
+    </form>
+
+    <table class="m-2">
+        <thead>
+            <tr>
+                <td style="padding: 20px;">
+                    <b>Nome</b>
+                </td>
+                <td style="padding: 20px;">
+                    <b>Avaliação</b>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["Habilidades"] != null)
+            {
+                var habilidades = ViewData["Habilidades"] as IEnumerable<Habilidade>;
+                @foreach (var habilidade in habilidades)
+                {
+                    <tr>
+                        <td style="padding: 10px;">
+                            @habilidade.Nome.ToString()
+                        </td>
+                        <td style="padding: 10px;">
+                            @habilidade.Avaliacao.ToString()
+                        </td>
+                        <td class="d-flex">
+                            <button type="button"
+                                    class="btn btn-secondary m-2 abrir-modal-edicao"
+                                    style="border-radius: 20px;"
+                                    data-id="@habilidade.Id"
+                                    data-nome="@habilidade.Nome"
+                                    data-avaliacao="@habilidade.Avaliacao"
+                                    data-id-aluno="@Model.Id">
+                                Editar
+                            </button>
+                            <button type="button"
+                                    class="btn btn-danger m-2 abrir-modal-exclusao"
+                                    style="border-radius: 20px;"
+                                    data-id="@habilidade.Id"
+                                    data-nome="@habilidade.Nome"
+                                    data-id-aluno="@Model.Id">
+                                Excluir
+                            </button>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <!-- Modal de confirmação de exclusão de habilidade -->
+    <div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="modalExclusaoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="formExcluirHabilidade" method="post" asp-action="ExcluirHabilidade" asp-controller="Alunos">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalExclusaoLabel">Confirmar Exclusão</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="Id" id="modalHabilidadeId" />
+                        <input type="hidden" name="Id_Aluno" id="modalAlunoId" />
+                        <p>Tem certeza que deseja excluir <strong id="modalHabilidadeNome"></strong> da lista de habilidades?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de edição de habilidade -->
+    <div class="modal fade" id="modalEdicao" tabindex="-1" aria-labelledby="modalEdicaoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form method="post" asp-action="EditarHabilidade" asp-controller="Alunos">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEdicaoLabel">Editar Habilidade</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="Id" id="modalEditarId" />
+                        <input type="hidden" name="Id_Aluno" id="modalEditarIdAluno" />
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="Nome" id="modalEditarNome">
+                            <label for="modalEditarNome">Nome da Habilidade</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="Avaliacao" id="modalEditarAvaliacao">
+                            <label for="modalEditarAvaliacao">Avaliação</label>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-cadastrar">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @* script para o modal de exclusao de habilidade *@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = new bootstrap.Modal(document.getElementById('modalExclusao'));
+
+            document.querySelectorAll('.abrir-modal-exclusao').forEach(botao => {
+                botao.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+                    const nome = this.getAttribute('data-nome');
+                    const idAluno = this.getAttribute('data-id-aluno');
+
+                    document.getElementById('modalHabilidadeId').value = id;
+                    document.getElementById('modalAlunoId').value = idAluno;
+                    document.getElementById('modalHabilidadeNome').textContent = nome;
+
+                    modal.show();
+                });
+            });
+        });
+    </script>
+
+    @* script para o modal de edição de habilidade *@
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modalEditar = new bootstrap.Modal(document.getElementById('modalEdicao'));
+
+            document.querySelectorAll('.abrir-modal-edicao').forEach(botao => {
+                botao.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+                    const nome = this.getAttribute('data-nome');
+                    const avaliacao = this.getAttribute('data-avaliacao');
+                    const idAluno = this.getAttribute('data-id-aluno');
+
+                    document.getElementById('modalEditarId').value = id;
+                    document.getElementById('modalEditarIdAluno').value = idAluno;
+                    document.getElementById('modalEditarNome').value = nome;
+                    document.getElementById('modalEditarAvaliacao').value = avaliacao;
+
+                    modalEditar.show();
+                });
+            });
+        });
+    </script>
+
+}

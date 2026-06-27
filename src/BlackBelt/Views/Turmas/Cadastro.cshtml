@@ -1,0 +1,61 @@
+﻿@using System.Text.Json
+@{
+    ViewData["Title"] = "Cadastrar Turma";
+}
+@model BlackBelt.Models.Turma
+
+<style>
+    .btn-cadastrar {
+        background-color: #C49A6C;
+        color: white;
+        border-radius: 20px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+</style>
+
+
+<h1 class="text-center m-5">Cadastrar Turma</h1>
+
+<div class="container" style="width:500px;">
+<form asp-action="CadastrarTurma" asp-controller="Turmas" method="post">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Nome">
+        <label for="Nome">Nome</label>
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <select class="form-select" asp-for="Id_Instrutor">
+            <option selected>Selecione o instrutor</option>
+            @if (ViewData["Instrutores"] != null)
+            {
+                var instrutores = ViewData["Instrutores"] as IEnumerable<Usuario>;
+                foreach (var instrutor in instrutores)
+                {
+                    <option value="@instrutor.Id">@instrutor.Nome.ToString()</option>
+                }
+            }
+        </select>
+        <label for="floatingSelect">Instrutor</label>
+        <span asp-validation-for="Id_Instrutor" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="time" class="form-control" asp-for="Horario">
+        <label for="Horario">Horario</label>
+        <span asp-validation-for="Horario" class="text-danger"></span>
+    </div>
+  
+        <div class="text-center mb-4 m-3">
+            <a class="btn btn-dark" style="border-radius: 20px;width:100px;" asp-area="" asp-controller="Turmas" asp-action="Index">Voltar</a>
+            <button type="submit" class="btn btn-cadastrar" style="border-radius: 20px;">Salvar</button>
+
+        </div>
+</form>
+</div>
+
+@if (TempData["ErroCadastroTurma"] != null)
+{
+    <script>
+        alert(@Html.Raw(JsonSerializer.Serialize(TempData["ErroCadastroTurma"])));
+    </script>
+}

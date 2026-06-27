@@ -1,0 +1,42 @@
+﻿/*Index*/
+table {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Botões */
+.filter-btn {
+    background-color: #3b2b1a;
+    color: white;
+}
+
+.btn-perfil {
+    background-color: #b90000;
+    color: white;
+    border-radius: 20px;
+}
+
+.btn-voltar {
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+
+.btn-cadastrar {
+    background-color: #b90000;
+    color: white;
+    border-radius: 20px;
+}
+
+/* Campos de filtro */
+.form-control {
+    background-color: #e5e5e5;
+    border: none;
+    border-radius: 20px;
+}
+
+/* Espaçamento dos filtros */
+.filter-section {
+    margin: 20px 0;
+}

@@ -1,0 +1,111 @@
+﻿body {
+    background-color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+table {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Header (opcional se estiver usando _Layout.cshtml) */
+.header {
+    background-color: #b90000;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    flex: 1;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.brand {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Top Navigation */
+.top-bar a {
+    color: #fff;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.top-bar {
+    background-color: #212529;
+}
+
+/* Botões */
+.filter-btn {
+    background-color: #3b2b1a;
+    color: white;
+}
+
+.btn-voltar {
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+
+.btn-cadastrar {
+    background-color: #b90000;
+    color: white;
+    border-radius: 20px;
+}
+
+/* Campos de filtro */
+.form-control {
+    background-color: #e5e5e5;
+    border: none;
+    border-radius: 20px;
+}
+
+/* Espaçamento dos filtros */
+.filter-section {
+    margin: 20px 0;
+}
+
+/* Lista de alunos (estilo de cartão) */
+.list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.list-group-item {
+    border: 1px solid #ccc !important;
+    padding: 20px;
+}
+
+    /* Alinhamento de botões */
+    .list-group-item .btn {
+        min-width: 100px;
+    }
+
+/* Espaço entre botão e formulário */
+.footer-btn {
+    margin: 2rem 0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .form-wrapper {
+        padding: 0 1rem;
+    }
+
+    .list-group-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+        .list-group-item .btn {
+            margin-top: 1rem;
+        }
+}

@@ -1,0 +1,39 @@
+﻿@model BlackBelt.Models.Habilidade
+@{
+    ViewData["Title"] = "Editar Habilidade";
+}
+<style>
+.btn-cadastrar {
+        background-color: #C49A6C;
+        color: white;
+        border-radius: 20px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+</style>
+
+<h1 class="text-center m-3">Editar Habilidade</h1>
+
+<div class="container" style="width:500px;">
+
+<form asp-action="EditarHabilidade" asp-controller="Alunos" method="post">
+    <input type="hidden" asp-for="Id" value="@Model.Id"/>
+    <input type="hidden" asp-for="Id_Aluno" value="@Model.Id_Aluno" />
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Nome" value="@Model.Nome">
+        <label for="Nome">Nome Habilidade</label>
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Avaliacao" value="@Model.Avaliacao">
+        <label for="Avaliacao">Avaliacao</label>
+        <span asp-validation-for="Avaliacao" class="text-danger"></span>
+    </div>
+       
+        <div class="text-center mb-4 m-3">
+            <a class="btn btn-dark" style="border-radius: 20px;width:180px;" asp-area="" asp-controller="Alunos" asp-action="Index">Voltar</a>
+            <button type="submit" class="btn btn-cadastrar" type="submit">Salvar</button>
+        </div>
+
+</form>
+</div>

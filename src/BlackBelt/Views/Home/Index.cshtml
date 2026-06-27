@@ -1,0 +1,88 @@
+﻿@model BlackBelt.Models.Login
+@{
+    ViewData["Title"] = "Menu Principal";
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+<style>
+
+    a {
+        text-decoration: none;
+    }
+
+    .btn-card {
+        color: #000;
+    }
+
+</style>
+
+<!-- Image Banner -->
+<section class="image-banner">
+    <img src="~/images/JIU.jpg" class="img-fluid w-100" style="height: 455px; object-fit: cover;" alt="Banner Jiu-Jitsu">
+    <!-- <div class="banner-text position-absolute top-50 start-50 translate-middle text-white fw-bold" style="font-size: 5rem; text-shadow: 2px 2px 5px black;">
+        ACADEMIA SIGMA
+    </div>-->
+</section>
+
+<!-- Buttons Section -->
+<section class="main-section text-center">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-2 mx-auto">
+                <a asp-controller="Alunos" asp-action="Index">
+                    <div class="btn-card">
+                        <div class="icon">📋</div>
+                        <div>Alunos</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 mx-auto">
+                <a asp-controller="Usuarios" asp-action="Index">
+                    <div class="btn-card">
+                        <div class="icon">🥋</div>
+                        <div>Usuários</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 mx-auto">
+                <a asp-controller="Turmas" asp-action="Index">
+                    <div class="btn-card">
+                        <div class="icon">🧑‍🤝‍🧑</div>
+                        <div>Turmas</div>
+                    </div>
+                </a>
+            </div>
+            @* <div class="col-6 col-md-4 col-lg-2 mx-auto">
+                <a asp-controller="Alunos" asp-action="Perfil">
+                    <div class="btn-card">
+                        <div class="icon">👤</div>
+                        <div>Perfil do Aluno</div>
+                    </div>
+                </a>
+            </div> *@
+            <div class="col-6 col-md-4 col-lg-2 mx-auto">
+                <a asp-controller="Home" asp-action="Index">
+                    <div class="btn-card">
+                        <div class="icon">📊</div>
+                        <div>Relatórios</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 mx-auto">
+                <a asp-controller="RegistrarPresenca" asp-action="Index">
+                    <div class="btn-card">
+                        <div class="icon">🕓</div>
+                        <div>Registrar Frequência</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4 px-3 text-white fw-bold">
+        </div>
+    </div>
+</section>

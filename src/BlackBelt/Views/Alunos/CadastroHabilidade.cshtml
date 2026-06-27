@@ -1,0 +1,38 @@
+﻿@model BlackBelt.Models.Habilidade
+@{
+}
+
+<style>
+ .btn-cadastrar {
+        background-color: #C49A6C;
+        color: white;
+        border-radius: 20px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+</style>
+
+<h3 class="text-center m-5">Cadastrar Habilidade</h3>
+
+<div class="container" style="width:500px;">
+
+<form asp-action="CadastrarHabilidade" asp-controller="Alunos" method="post">
+    <input type="hidden" asp-for="Id_Aluno" value="@Model.Id_Aluno"/>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Nome">
+        <label for="Nome">Nome Habilidade</label>
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Avaliacao">
+        <label for="Avaliacao">Avaliacao</label>
+        <span asp-validation-for="Avaliacao" class="text-danger"></span>
+    </div>
+        <div class="text-center mb-4 m-3">
+            <a class="btn btn-dark" style="border-radius: 20px;width:180px;" asp-area="" asp-controller="Alunos" asp-action="Index">Voltar</a>
+            <button type="submit" class="btn btn-cadastrar " type="submit">Cadastrar Habilidade</button>
+        </div>
+
+   
+</form>
+</div>
