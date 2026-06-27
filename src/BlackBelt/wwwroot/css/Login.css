@@ -1,0 +1,38 @@
+﻿body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg-login {
+    height: 100vh;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+}
+
+.logo-img {
+    width: 150px;
+    margin-bottom: 1rem;
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Arial Black', sans-serif;
+}
+
+    .logo-text span {
+        color: #c1121f;
+    }
+
+.btn-login {
+    background-color: #c1121f;
+    color: white;
+    width: 100%;
+}

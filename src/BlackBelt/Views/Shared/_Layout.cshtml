@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BlackBelt</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BlackBelt.styles.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
+</head>
+
+<style>
+    .top-bar {
+        color: #fff;
+    }
+
+      .top-bar a {
+            color: #fff;
+            margin-left: 1rem;
+            text-decoration: none;
+        }
+
+            .top-bar a:hover {
+                color: #c1121f;
+            }
+</style>
+
+
+<body>
+    <header>
+        <nav class="top-bar d-flex justify-content-between align-items-center px-4 py-2 navbar-dark bg-dark">
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/01.png" alt="Logo" height="50">
+                    <span class="ms-3 text-white fw-bold fs-4">BLACK</span>
+                    <span class="fw-bold fs-4" style="color:#c1121f;"> BELT</span>
+                </a>
+            </div>
+
+            <div class="d-flex">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Admin"))
+                    {
+
+                        <a class="mx-2" asp-area="" asp-controller="Usuarios" asp-action="Index">🥋 Usuários</a>
+
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Auxiliar"))
+                    {
+
+                        <a class="mx-2" asp-area="" asp-controller="Turmas" asp-action="Index">🧑‍🤝‍🧑 Turmas</a>
+
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Auxiliar") || User.IsInRole("Instrutor"))
+                    {
+
+                        <a class="mx-2" asp-area="" asp-controller="Alunos" asp-action="Index">👤 Alunos</a>
+
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Instrutor"))
+                    {
+
+                        <a class="mx-2" asp-area="" asp-controller="RegistrarPresenca" asp-action="Index">📋 Registrar Aula</a>
+
+                    }
+
+
+                    <a class="mx-2">Bem-vindo, @User.Identity.Name</a>
+
+                }
+
+                <form asp-action="Logout" asp-controller="Login" method="post">
+                    <button class="btn btn-danger" type="submit">Sair</button>
+                </form>
+
+            </div>
+        </nav>
+    </header>
+    @* <div class="container"> *@
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>@* 
+    </div> *@
+
+    @* <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - BlackBelt - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

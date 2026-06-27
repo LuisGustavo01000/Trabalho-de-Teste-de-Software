@@ -1,0 +1,123 @@
+﻿@using System.Text.Json
+@{
+    ViewData["Title"] = "Cadastrar Usuário";
+}
+@model BlackBelt.Models.Usuario
+
+<style>
+    .btn-cadastrar {
+        background-color: #C49A6C;
+        color: white;
+        border-radius: 20px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+</style>
+
+<h1 class="text-center m-5">Cadastrar usuário</h1>
+
+<div class="container" style="width:500px;">
+
+<form asp-action="CadastrarUsuario" asp-controller="Usuarios" method="post">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Nome">
+        <label for="Nome">Nome</label>
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Cpf" id="cpfInput">
+        <label for="Cpf">CPF</label>
+        <span asp-validation-for="Cpf" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" asp-for="Email">
+        <label for="Email">Email</label>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Telefone" id="telefoneInput">
+        <label for="Telefone">Telefone</label>
+        <span asp-validation-for="Telefone" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="date" class="form-control" asp-for="Dt_Nascimento">
+        <label for="Dt_Nascimento">Data de nascimento</label>
+        <span asp-validation-for="Dt_Nascimento" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <select class="form-select" asp-for="Tipo_Usuario">
+            <option selected>Selecione o tipo do usuário</option>
+            <option value="Admin">Administrador</option>
+            <option value="Auxiliar">Auxiliar</option>
+            <option value="Instrutor">Instrutor</option>
+        </select>
+        <label for="floatingSelect">Tipo de Usuário</label>
+        <span asp-validation-for="Tipo_Usuario" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" asp-for="Senha">
+        <label for="Senha">Senha</label>
+        <span asp-validation-for="Senha" class="text-danger"></span>
+    </div>
+  
+        <div class="text-center mb-4 m-3">
+            <a class="btn btn-dark" style="border-radius: 20px;width:100px;" asp-area="" asp-controller="Usuarios" asp-action="Index">Voltar</a>
+            <button type="submit" class="btn btn-cadastrar" style="border-radius: 20px;">Salvar</button>
+
+        </div>
+</form>
+</div>
+
+
+@if (TempData["ErroCadastroUsuario"] != null)
+{
+    <script>
+        alert(@Html.Raw(JsonSerializer.Serialize(TempData["ErroCadastroUsuario"])));
+    </script>
+}
+
+@if (TempData["ErroCpfUsuario"] != null)
+{
+    <script>
+        alert(@Html.Raw(JsonSerializer.Serialize(TempData["ErroCpfUsuario"])));
+    </script>
+}
+
+@* adicionando função pra mascara de cpf e telefone *@
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // mascara pro CPF
+            $('#cpfInput').mask('000.000.000-00');
+
+            // remove a máscara de CPF antes de enviar pro banco
+            $('form').on('submit', function () {
+                const rawCpf = $('#cpfInput').val().replace(/\D/g, '');
+                $('#cpfInput').val(rawCpf);
+
+                const telefoneSemMascara = $('#telefoneInput').val().replace(/\D/g, '');
+                $('#telefoneInput').val(telefoneSemMascara);
+            });
+
+            // mascara pro telefone
+            function aplicarMascaraTelefone() {
+                const input = $('#telefoneInput');
+                input.unmask();
+
+                const numeros = input.val().replace(/\D/g, '');
+                input.mask('(00) 0000-0000');
+            }
+
+            $('#telefoneInput').on('blur', aplicarMascaraTelefone);
+
+            // aplica máscara inicial
+            aplicarMascaraTelefone();
+        });
+    </script>
+}
+
+
+

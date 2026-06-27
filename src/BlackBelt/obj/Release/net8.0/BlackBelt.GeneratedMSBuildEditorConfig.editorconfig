@@ -1,0 +1,151 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = BlackBelt
+build_property.RootNamespace = BlackBelt
+build_property.ProjectDir = C:\Users\vinic\source\repos\ICEI-PUC-Minas-PCO-SI\2025-1-p5-tias-grupo3\src\BlackBelt\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\vinic\source\repos\ICEI-PUC-Minas-PCO-SI\2025-1-p5-tias-grupo3\src\BlackBelt
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Alunos/Cadastro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXENhZGFzdHJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Alunos/CadastroHabilidade.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXENhZGFzdHJvSGFiaWxpZGFkZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Alunos/EdicaoHabilidade.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXEVkaWNhb0hhYmlsaWRhZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Alunos/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Alunos/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXEV4Y2x1aXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Alunos/ExclusaoHabilidade.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXEV4Y2x1c2FvSGFiaWxpZGFkZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Alunos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Alunos/IndexOriginal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXEluZGV4T3JpZ2luYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Alunos/Perfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXFBlcmZpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Alunos/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Login/IndexOriginal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXhPcmlnaW5hbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/RegistrarPresenca/Historico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmFyUHJlc2VuY2FcSGlzdG9yaWNvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/RegistrarPresenca/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmFyUHJlc2VuY2FcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/RegistrarPresenca/LancarPresenca.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmFyUHJlc2VuY2FcTGFuY2FyUHJlc2VuY2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/RegistrarPresenca/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmFyUHJlc2VuY2FcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Turmas/Cadastro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFzXENhZGFzdHJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Turmas/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFzXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Turmas/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFzXEV4Y2x1aXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Turmas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Turmas/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Usuarios/Cadastro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ2FkYXN0cm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Usuarios/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Usuarios/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRXhjbHVpci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Usuarios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Usuarios/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vinic/source/repos/ICEI-PUC-Minas-PCO-SI/2025-1-p5-tias-grupo3/src/BlackBelt/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-xooog3oh9s
