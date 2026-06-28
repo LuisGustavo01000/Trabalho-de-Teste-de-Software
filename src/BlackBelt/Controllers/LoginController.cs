@@ -35,7 +35,8 @@ namespace BlackBelt.Controllers
             }
             else
             {
-                var usuario = _usuarioRepository.BuscarUsuarioLogin(cpf, senha);
+                cpf = new string(cpf.Where(char.IsDigit).ToArray());
+            var usuario = _usuarioRepository.BuscarUsuarioLogin(cpf, senha);
                 if (usuario != null && CriptografiaSenha.ValidarSenha(senha, usuario.SenhaHash))
                 {
                     // Autenticar usuário

@@ -31,6 +31,23 @@ namespace BlackBelt.Controllers
             return View(usuarios);
         }
 
+        [HttpGet]
+        public IActionResult CriarAdmin()
+        {
+            var admin = new Usuario
+            {
+                Nome = "Admin",
+                Cpf = "00000000000",
+                Email = "admin@admin.com",
+                Telefone = "00000000000",
+                Dt_Nascimento = new DateOnly(2000, 1, 1),
+                Tipo_Usuario = "Admin",
+                SenhaHash = CriptografiaSenha.SenhaHash("admin123")
+            };
+            _usuarioRepository.CadastrarUsuario(admin);
+            return Content("Admin criado! CPF: 00000000000000 | Senha: admin123");
+        }
+
         [Authorize(Roles = "Admin")]
         public IActionResult Cadastro()
         {
