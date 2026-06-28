@@ -1,0 +1,150 @@
+﻿@model IEnumerable<Turma>
+@using System.Text.Json
+@{
+    ViewData["Title"] = "Turma";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Turmas.css" asp-append-version="true" />
+}
+<style>
+.btn-cadastrar {
+        background-color: #C49A6C;
+        color: white;
+        border-radius: 20px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+</style>
+
+<h1 class="text-center m-5">Lista de Turmas</h1>
+
+<div class="container text-center">
+    <div class ="mb-5">
+        <a class="btn btn-dark" style="border-radius: 20px; width:180px" asp-area="" asp-controller="Home" asp-action="Index">Voltar</a>
+        <a class="btn btn-cadastrar" asp-area="" asp-controller="Turmas" asp-action="Cadastro">Cadastrar Turma</a>
+    </div>
+
+    <!-- Filtros -->
+    <form method="get" asp-controller="Turmas" asp-action="Index" class="row filter-section justify-content-center">
+        <div class="col-md-4 mb-2" style="width:270px;">
+            <input type="text" name="filtroNome" value="@ViewBag.FiltroNome" class="form-control rounded-pill border border-dark" placeholder="Filtrar por nome da turma" />
+        </div>
+        <div class="col-md-4 mb-2" style="width:270px;">
+            <input type="text" name="filtroInstrutor" value="@ViewBag.FiltroInstrutor" class="form-control rounded-pill border border-dark" placeholder="Filtrar por instrutor" />
+        </div>
+        <div class="col-md-2 mb-2 d-flex" style="width:30%; gap:10px;">
+            <button type="submit" class="btn filter-btn w-100 rounded-pill">Filtrar</button>
+            <a href="@Url.Action("Index", "Turmas")" class="btn btn-outline-secondary rounded-pill w-100">Limpar</a>
+        </div>
+    </form>
+    
+    <div>
+        <table class="tabelaInfo">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Instrutor</th>
+                    <th scope="col">Horário</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Data de cadastro</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+                    <h6>Carregando turmas...</h6>
+                }
+                @if (Model != null && Model.Any())
+                {
+                    foreach (Turma turma in Model)
+                    {
+                        <tr>
+                            <th scope="col">@turma.Nome.ToString()</th>
+                            <th scope="col">@turma.Instrutor.Nome.ToString()</th>
+                            <th scope="col">@turma.Horario.ToString()</th>
+                            <th scope="col">@turma.Dt_Cadastro.ToString("dd/MM/yyyy")</th>
+                            @switch (@turma.Status)
+                            {
+                                case 1:
+                                    <th scope="col">Ativa</th>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a role="button" class="btn btn-secondary m-2" style="border-radius: 20px;" asp-route-id="@turma.Id" asp-controller="Turmas" asp-action="Editar">Editar</a>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <button type="button"
+                                                        class="btn btn-danger m-2 abrir-modal-exclusao"
+                                                        style="border-radius: 20px;"
+                                                        data-id="@turma.Id"
+                                                        data-nome="@turma.Nome">
+                                                    Desativar
+                                                </button>
+                                            }
+                                        </div>
+                                    </td>
+                                    break;
+                                case 2:
+                                    <th scope="col">Desativada</th>
+                                    break;
+                            }
+                            
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal de confirmação de exclusão de turma -->
+<div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="modalExclusaoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form id="formExcluirTurma" method="post" asp-action="ExcluirTurma" asp-controller="Turmas">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalExclusaoLabel">Confirmar desativação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="Id" id="modalTurmaId" />
+                    <input type="hidden" name="Id_Usuario" id="modalTurmaId" />
+                    <p>Tem certeza que deseja desativar <strong id="modalTurmaNome"></strong> da lista de turmas?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @* script para o modal de exclusao de turma *@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = new bootstrap.Modal(document.getElementById('modalExclusao'));
+
+            document.querySelectorAll('.abrir-modal-exclusao').forEach(botao => {
+                botao.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+                    const nome = this.getAttribute('data-nome');
+
+                    document.getElementById('modalTurmaId').value = id;
+                    document.getElementById('modalTurmaNome').textContent = nome;
+
+                    modal.show();
+                });
+            });
+        });
+    </script>
+}
+
+@if (TempData["ErroExcluirTurma"] != null)
+{
+    <script>
+        alert(@Html.Raw(JsonSerializer.Serialize(TempData["ErroExcluirTurma"])));
+    </script>
+}

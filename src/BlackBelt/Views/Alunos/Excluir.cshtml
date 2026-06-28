@@ -1,0 +1,24 @@
+﻿@model BlackBelt.Models.Aluno
+@using System.Text.Json
+<div class="container">
+    <br/>
+    <h4 class="text-center m-2">Tem certeza que deseja excluir @Model.Nome da lista de alunos?</h4>
+
+    <form asp-action="ExcluirAluno" asp-controller="Alunos" method="post">
+        <input type="hidden" value="@Model.Id" asp-for="Id" />
+        <div class="text-center mb-4 m-3">
+            <a class="btn btn-dark" style="border-radius: 20px;width:100px;" asp-area="" asp-controller="Alunos" asp-action="Index">Voltar</a>
+            <button class="btn btn-danger" style="border-radius: 20px;width:100px;" type="submit">Excluir</button>
+        </div>
+    </form>
+
+  
+</div>
+
+
+@if (TempData["ErroExcluirAluno"] != null)
+{
+    <script>
+        alert(@Html.Raw(JsonSerializer.Serialize(TempData["ErroExcluirAluno"])));
+    </script>
+}

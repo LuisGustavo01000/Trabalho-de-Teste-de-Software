@@ -1,0 +1,73 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/*Menu Principal*/
+.main-section {
+    background-color: #c1121f;
+    padding: 2rem 0;
+}
+
+.btn-card {
+    background-color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+    .btn-card:hover {
+        background-color: #f8f9fa;
+        transform: translateY(-3px);
+    }
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.top-bar {
+    color: #fff;
+}
+
+    .top-bar a {
+        color: #fff;
+        margin-left: 1rem;
+        text-decoration: none;
+    }
+
+.icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}

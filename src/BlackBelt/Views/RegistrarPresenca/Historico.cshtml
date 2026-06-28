@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Presenca>
+@{
+    ViewData["Title"] = "Registrar Presenca";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/RegistrarPresenca.css" />
+}
+<style>
+    .btn-voltar {
+        background-color: black;
+        color: white;
+        border-radius: 20px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        width: 300px;
+    }
+
+    .container-centralizado {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tabelaInfo th,
+    .tabelaInfo td {
+        padding: 0.75rem 1.5rem;
+    }
+</style>
+
+<h1 class="text-center m-5">Registro de Presença</h1>
+
+<div class="container container-centralizado">
+    <div>
+        <table class="tabelaInfo">
+            <thead>
+                <tr>
+                    <th scope="col">Aula</th>
+                    <th scope="col">Data da aula</th>
+                    <th scope="col">Frequência %</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+                    <h6>Carregando turmas...</h6>
+                }
+                @if (Model != null && Model.Any())
+                {
+                    int i = 1;
+
+                        foreach (Presenca aula in Model)
+                        {
+                            <tr>
+                                <th scope="col">Aula @i</th>
+                                <th scope="col">@aula.Dt_Aula.ToString("dd-MM-yyyy")</th>
+                                <th scope="col">--</th>
+                            </tr>
+                            i++;
+                        }
+                    
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div>
+    <a class="btn btn-dark m-4" style="border-radius: 20px; width:100px" asp-area="" asp-controller="RegistrarPresenca" asp-action="Index">Voltar</a>
+</div>
+@{
+}
