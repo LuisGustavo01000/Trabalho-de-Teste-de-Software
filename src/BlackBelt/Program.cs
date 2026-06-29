@@ -11,11 +11,10 @@ namespace BlackBelt
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
@@ -27,7 +26,6 @@ namespace BlackBelt
 
             builder.Services.AddAuthorization();
 
-            // Aqui é o registro dos serviços de repositório que servem para fazer as operações no banco
             builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             builder.Services.AddScoped<ITurmaRepository, TurmaRepository>();
             builder.Services.AddScoped<ILoginRepository, LoginRepository>();
@@ -39,11 +37,9 @@ namespace BlackBelt
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -60,6 +56,32 @@ namespace BlackBelt
                 name: "default",
                 pattern: "{controller=Login}/{action=Index}/{id?}");
 
+            using (var scope = app.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+                var usuarioExistente = context.Usuarios.FirstOrDefault(u => u.Cpf == "12345678900");
+                if (usuarioExistente != null)
+                {
+                    usuarioExistente.SenhaHash = BlackBelt.Models.CriptografiaSenha.SenhaHash("123");
+                    context.Usuarios.Update(usuarioExistente);
+                }
+                else
+                {
+                    context.Usuarios.Add(new BlackBelt.Models.Usuario
+                    {
+                        Nome = "UsuÃ¡rio Mestre",
+                        Cpf = "12345678900",
+                        Email = "teste@teste.com",
+                        Telefone = "(31) 99999-9999",
+                        Dt_Nascimento = new DateOnly(1990, 1, 1),
+                        Tipo_Usuario = "Admin",
+                        SenhaHash = BlackBelt.Models.CriptografiaSenha.SenhaHash("123")
+                    });
+                }
+                context.SaveChanges();
+            }
+//teste//
             app.Run();
         }
     }
